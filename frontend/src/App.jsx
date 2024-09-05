@@ -1,5 +1,6 @@
 import './App.css'
 import Dashboard from './components/Dashboard'
+import Edit from './components/EditModal'
 import {
   QueryClient,
   QueryClientProvider

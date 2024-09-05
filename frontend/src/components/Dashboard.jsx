@@ -6,7 +6,7 @@ const dashboard = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
-      fetch(`https://fakestoreapi.com/products`).then((res) => res.json()),
+      fetch(`http://localhost:3000/user/find-all`).then((res) => res.json()),
   });
 
   if (isPending) return "Loading...";

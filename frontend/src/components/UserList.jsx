@@ -3,23 +3,6 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import EditUserModal from "./EditUserModel";
 
 const userList = ({ SetHomeId, homeId, id, usersOptions,isModalOpen,handleEditUserClick,handleModalClose}) => {
-  const postData = async (homeId) => {
-    const response = await fetch(`http://localhost:3000/user/find-by-home/${homeId}`);
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    return response.json()
-   };
-  
-  //  const mutation = useMutation({
-  //    mutationFn: postData,
-  //    onSuccess: (data) => {
-  //      console.log('POST Request Success:', data);
-  //    },
-  //    onError: (error) => {
-  //      console.error('POST Request Error:', error);
-  //    },
-  //  });
 
   const [homeIds, setHomeIds] = useState([]);
   const result = useQuery({
@@ -34,15 +17,15 @@ const userList = ({ SetHomeId, homeId, id, usersOptions,isModalOpen,handleEditUs
   })
   
   const handleClick = async (id) => {
-    //mutation.mutate(id);
     SetHomeId(id)
-    await postData(id).then((res) =>setHomeIds(res), handleEditUserClick())
+    handleEditUserClick()
   };
   return (
-    <div className="grid grid-cols-4 gap-4  max-w-52 max-h-80 shadow-md mb-5  rounded-md">
+    <div>
+    <div className=" grid grid-cols-1 gap-2 pl-6 w-[100%] lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 esm:grid-cols-2 exsm:grid-cols-1 ">
     { result?.data?.homes?.map((item,index) => {
     return (
-      <div key={index} className="grid-cols-4 gap-4  max-w-52 max-h-80 shadow-md mb-5  rounded-md">
+      <div key={index} className="flex  max-w-52 max-h-80 shadow-md mb-5  rounded-md">
         <div className="px-5 py-4 relative " key={item.id}>
           <p className="font-bold ">{item.street_address}</p>
           <div className="text-sm pt-1 h-[180px]  overflow-hidden">
@@ -65,10 +48,10 @@ const userList = ({ SetHomeId, homeId, id, usersOptions,isModalOpen,handleEditUs
       </div>
     );
   })}  
-   {isModalOpen && (
+    </div>
+    {isModalOpen && (
         <EditUserModal
         usersOptions = {usersOptions}
-        //homeData = {homeData}
         homeId = {homeId}
           onClose={handleModalClose}
         />

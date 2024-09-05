@@ -18,28 +18,8 @@ const userDashboard = () => {
       fetch(`http://localhost:3000/user/find-all`).then((res) => res.json()),
   });
 
-
-  // const postData = async (data) => {
-  //  return await fetch(`https://fakestoreapi.com/products/${data}`);
-
-  // };
-
-  // const mutation = useMutation({
-  //   mutationFn: postData,
-  //   onSuccess: (data) => {
-  //     console.log('POST Request Success:', data);
-  //   },
-  //   onError: (error) => {
-  //     console.error('POST Request Error:', error);
-  //   },
-  // });
-
-
-
   const handleChangeInput = (e)=> {
-    // console.log(e.target.value)
     SetUserId(e.target.value)
-    // mutation.mutate(e.target.value);
   }
 
 
@@ -60,7 +40,7 @@ const userDashboard = () => {
       </div>
       
       {userId!=0 ? 
-        <div className=" grid grid-cols-1 gap-2 pl-6 w-[100%] lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 esm:grid-cols-2 exsm:grid-cols-1 ">
+        <div>
           <UserList id={userId}
           isModalOpen={isModalOpen}
           handleEditUserClick={handleEditUserClick}
@@ -71,8 +51,7 @@ const userDashboard = () => {
            </div>
          : <div className=" max-w-fit ml-auto mr-auto pt-[18rem]"> <h1 className=" font-semibold text-lg">Noting to show</h1></div> 
 
-      }
-       
+      } 
        
     </>
   );

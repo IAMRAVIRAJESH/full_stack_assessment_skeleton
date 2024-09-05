@@ -138,6 +138,9 @@ In this problem the data was not in the normalized form, so what I did was -
 5. After that I  altered the user_home table to create relation of user and home table with user_home table as foreign key respectively and
    dropped all the columns from user_home table except for the id, home_id and user_id columns, as other data were redundant and can be fetched from user and home tables respectively.
 6. After applying these above procedures I was able to query the database.
+7. All the sql scripts I have used are available in the 99_final_db_dump.sql file.
+
+Note: for spinning up the database I have changed the host port to 3307 throught my assignment as 3306 was busy for some reason.
 
 ## 2. React SPA
 
@@ -229,8 +232,16 @@ In this problem the data was not in the normalized form, so what I did was -
 ### solution
 
 > explain briefly your solution for this problem here
-1. I have used react and vite to create frontend.
-2. I have used tanstack to create API calls
+1. I have used Vite for create react app and bundling.
+2. I have used tanstack to create API calls.
+3. For routing used react router dom.
+4. I have used tanstack Query for api calling.
+5. I have used Tailwind for css.
+
+For running frontend server
+1. Move to frontend directory.
+2. Run npm i.
+3. RUN npm run dev.
 
 ## 3. Backend API development on Node
 
@@ -303,6 +314,8 @@ For running backend server
 2. Run npm i.
 3. Move to dbConnect directory.
 4. RUN npm run server.js.
+
+Note: Run frontend and backend server in seprate terminals simultaneously to test the webapp.
 
 ## Submission Guidelines
 

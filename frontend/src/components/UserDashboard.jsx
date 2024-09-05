@@ -4,6 +4,7 @@ import { useQuery,useMutation } from "@tanstack/react-query";
 
 const userDashboard = () => {
   const [userId, SetUserId] = useState(0);
+  const [homeId, SetHomeId] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleEditUserClick = () => {
     setIsModalOpen(true);
@@ -64,6 +65,8 @@ const userDashboard = () => {
           isModalOpen={isModalOpen}
           handleEditUserClick={handleEditUserClick}
           usersOptions={userOption?.data}
+          homeId = {homeId}
+          SetHomeId= {SetHomeId}
           handleModalClose={handleModalClose} />
            </div>
          : <div className=" max-w-fit ml-auto mr-auto pt-[18rem]"> <h1 className=" font-semibold text-lg">Noting to show</h1></div> 

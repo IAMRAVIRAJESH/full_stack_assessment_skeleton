@@ -312,8 +312,7 @@ For running frontend server
 For running backend server
 1. Move to backend directory.
 2. Run npm i.
-3. Move to dbConnect directory.
-4. RUN npm run server.js.
+3. RUN nodemon dbConnect/serevr.js.
 
 Note: Run frontend and backend server in seprate terminals simultaneously to test the webapp.
 

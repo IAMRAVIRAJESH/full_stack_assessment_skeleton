@@ -1,5 +1,7 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
+app.use(cors());
 const port = 3000;
 
 app.use(express.json());
@@ -21,7 +23,17 @@ app.get("/user/find-all", async (req, res) => {
   }
 });
 
-app.get("/home/find-by-user", async (req, res) => {
+app.get("/home/find-all", async (req, res) => {
+  try {
+    const call = await UserHome.getAllHomes(req);
+    return res.send(call);
+  } catch (error) {
+    console.error(error);
+    return response(error.statusCode, { message: error.message });
+  }
+});
+
+app.get("/home/find-by-user/:id", async (req, res) => {
   try {
     const call = await UserHome.getUsersHome(req);
     return res.send(call);
@@ -31,7 +43,7 @@ app.get("/home/find-by-user", async (req, res) => {
   }
 });
 
-app.get("/user/find-by-home", async (req, res) => {
+app.get("/user/find-by-home/:id", async (req, res) => {
   try {
     const call = await UserHome.getHomeUsers(req);
     return res.send(call);

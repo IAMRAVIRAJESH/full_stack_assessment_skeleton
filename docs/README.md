@@ -130,6 +130,14 @@ docker-compose -f docker-compose.initial.yml up --build -d
 ### solution
 
 > explain briefly your solution for this problem here
+In this problem the data was not in the normalized form, so what I did was - 
+1. I created 2 tables user and home.
+2. Then I added unique data to both user and home tables from user_home table for thier respective columns. 
+3. After that I  altered the user_home table to add id, user_id and home_id columns for the reference of user and home table respectively
+4. Then I  updated the user_home table to add the respective ids of home user with user_id and home_id respectively.
+5. After that I  altered the user_home table to create relation of user and home table with user_home table as foreign key respectively and
+   dropped all the columns from user_home table except for the id, home_id and user_id columns, as other data were redundant and can be fetched from user and home tables respectively.
+6. After applying these above procedures I was able to query the database.
 
 ## 2. React SPA
 
@@ -221,6 +229,8 @@ docker-compose -f docker-compose.initial.yml up --build -d
 ### solution
 
 > explain briefly your solution for this problem here
+1. I have used react and vite to create frontend.
+2. I have used tanstack to create API calls
 
 ## 3. Backend API development on Node
 
@@ -282,6 +292,17 @@ docker-compose -f docker-compose.initial.yml up --build -d
 ### solution
 
 > explain briefly your solution for this problem here
+1. I have used sequelize ORM and express with NodeJS to build backend APIs.
+2. Here I have created models for user, home and user_home where I have declared the relationship between them, that how they are connected to
+   each other.
+3. I have created controller for all the APIs so that respective functions can be called for the same and debugging would be easy.
+4. I have created different entities for each part, i.e., running server, models, controllers, db connections.
+
+For running backend server
+1. Move to backend directory.
+2. Run npm i.
+3. Move to dbConnect directory.
+4. RUN npm run server.js.
 
 ## Submission Guidelines
 

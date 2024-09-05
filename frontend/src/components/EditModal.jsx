@@ -12,8 +12,8 @@ const EditUserModal = ({ home, users, onClose }) => {
 
   const mutation = useMutation(updatedUsers => {
     // API call to update users in the DB
-    return fetch("http://localhost:3000/home/update-users", {
-      method: 'PUT',
+    return fetch(/api/homes/${home.id}/users, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },

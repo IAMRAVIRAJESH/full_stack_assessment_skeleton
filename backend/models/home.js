@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Home.associate = (models) => {
     Home.belongsToMany(models.User, {
-      through: models.UserHome, // Use the model instance directly
+      through: models.UserHome,
       foreignKey: "home_id",
       otherKey: "user_id",
     });

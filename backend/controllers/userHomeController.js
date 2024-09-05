@@ -6,9 +6,14 @@ class userHomeFunction {
     return users;
   }
 
+  async getAllHomes(req) {
+    const homes = await db.Home.findAll();
+    return homes;
+  }
+
   async getHomeUsers(req, res) {
     try {
-      const home = await db.Home.findByPk(req.body.id, {
+      const home = await db.Home.findByPk(req.params.id, {
         include: db.User,
       });
       return home;
@@ -18,7 +23,7 @@ class userHomeFunction {
   }
   async getUsersHome(req, res) {
     try {
-      const user = await db.User.findByPk(req.body.id, {
+      const user = await db.User.findByPk(req.params.id, {
         include: db.Home,
       });
       return user;

@@ -314,7 +314,7 @@ For running backend server
 2. Run npm i.
 3. RUN nodemon dbConnect/serevr.js.
 
-Note: Run frontend and backend server in seprate terminals simultaneously to test the webapp.
+Note: Run frontend and backend server in seprate terminals simultaneously to test the webapp. Aso I have added a postman collection with the assignment.
 
 ## Submission Guidelines
 
